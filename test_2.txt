@@ -1,0 +1,26 @@
+10
+
+ADd
+
+ADD
+5 5 0 0
+
+DEL 0
+
+DEL 0
+
+PRINT 0
+
+AREA
+
+ADD
+8 6 1 -2
+
+ADD 
+6 7 4
+1
+    
+PRINT
+2
+
+AREA
