@@ -135,7 +135,7 @@ void Print(const Figure& a) {
 int main() {
     vector<Figure> vec;
     string s;
-    while(getline(cin, s)) {
+    while(cin >> s) {
         if(s == "ADD") {
             int num;
             double side;
