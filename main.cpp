@@ -1,5 +1,6 @@
 /**
  * Тумаков М8О-206Б-19
+ * Лабораторная работа №3
  * 5-ти угольник, 6-ти угольник, 8-и угольник
  */
 
@@ -9,70 +10,68 @@
 #include <cmath>
 #include <string>
 
+//Число Пи
 #define PI 3.14159265358979323846
 using namespace std;
-
+//Сокращение для пары чисел типа double
 using Pair = pair<double, double>;
-
+//перегрузка оператора вывода для пары
 ostream& operator<<(ostream& stream, Pair p) {
     stream << "( " << p.first << ", "<< p.second << " )";
     return stream;
 }
-
+//перегрузка оператора ввода для пары
 istream& operator>>(istream& stream, Pair p) {
     stream >> p.first;
     stream.ignore(1);
     stream >> p.second;
     return stream;
 }
-
+//Класс Figure
 class Figure {
 public:
+//конструктор по умолчанию
     Figure() {
         center = {0, 0};
         side = 0;
         num = 0;
     }
+    //конструктор класса
     Figure(Pair a, double b, int n) {
         center = a;
         side = b;
         num = n;
         area = (num * side*side) / (4 * tan( PI / num ));
     }
-
+    //вывод координат вершин фигуры
     void Print_cords() const {
         for(Pair p : cords) {
             cout<<"Apex cords: ";
             cout << p << endl;
         }
     }
-
+    //получить координаты центра фигуры
     Pair GetCenter() const {
         return center;
     }
-
+    //получить площадь фигуры
     double GetArea() const {
         return area;
     }
-
 protected:
     Pair center = {0, 0};
     double side = 0;
+    //вектор координат вершин фигуры
     vector<Pair> cords;
 private:
     uint8_t num = 0;
     double area;
 };
-
+//Класс пятиугольник
 class Pentagon : public Figure {
 public:
-    Pentagon() : Figure() {
-        Pair apex1 = {0, 0};
-        Pair apex2 = {0, 0};
-        Pair apex3 = {0, 0};
-        Pair apex4 = {0, 0};
-        Pair apex5 = {0, 0}; 
-    }
+    Pentagon() : Figure() {}
+
     Pentagon(Pair a, double b) : Figure(a, b, 5) {
         push_cords();
     }
@@ -87,17 +86,11 @@ private:
         cords.push_back({center.first - R*sin(2*ang), center.second - R*cos(2*ang)});
     }
 };
-
+//класс шестиугольник
 class Hexagon : public Figure {
 public:
-    Hexagon() : Figure() {
-        Pair apex1 = {0, 0};
-        Pair apex2 = {0, 0};
-        Pair apex3 = {0, 0};
-        Pair apex4 = {0, 0};
-        Pair apex5 = {0, 0}; 
-        Pair apex6 = {0, 0}; 
-    }
+    Hexagon() : Figure() {}
+
     Hexagon(Pair a, double b) : Figure(a, b, 6) {
         push_cords();
     }
@@ -111,19 +104,11 @@ private:
         cords.push_back({center.first + side/2, center.second - side});
     }
 };
-
+//класс восьмиугольник
 class Octagon : public Figure {
 public:
-    Octagon() : Figure() {
-        Pair apex1 = {0, 0};
-        Pair apex2 = {0, 0};
-        Pair apex3 = {0, 0};
-        Pair apex4 = {0, 0};
-        Pair apex5 = {0, 0}; 
-        Pair apex6 = {0, 0};
-        Pair apex7 = {0, 0}; 
-        Pair apex8 = {0, 0}; 
-    }
+    Octagon() : Figure() {}
+
     Octagon(Pair a, double b) : Figure(a, b, 8) {
         push_cords();
     }
@@ -140,7 +125,7 @@ private:
         cords.push_back({center.first - h, center.second - side/2});
     }
 };
-
+//вывод  координат центра, координат вершин, площади фигуры
 void Print(const Figure& a) {
     cout << "Geom Center: " << a.GetCenter() << endl;
     a.Print_cords();
