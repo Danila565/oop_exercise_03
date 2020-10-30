@@ -1,0 +1,15 @@
+ADD 5 7 0 0
+
+ADD 8 4 -4 1
+
+ADD 6 5 1 1
+
+PRINT 1
+
+Print 0
+
+PRINT 0
+
+PRINT 2
+
+AREA
