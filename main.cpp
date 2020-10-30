@@ -143,12 +143,15 @@ int main() {
             cin >> num >> side >> cen;;
             if (num == 5) {
                 vec.push_back(Pentagon(cen, side));
+                cout << "Pentagon added" << endl;
             }
             else if (num == 6) {
                 vec.push_back(Hexagon(cen, side));
+                cout << "Hexagon added" << endl;
             }
             else if (num == 8) {
                 vec.push_back(Octagon(cen, side));
+                cout << "Octagon added" << endl;
             }
             else {
                 cout << "Wrong number of sides" << endl;
