@@ -190,10 +190,7 @@ int main() {
             Print(vec[idx]);
         }
         else if(s == "AREA") {
-            double sum;
-            if(vec.size() == 0) {
-                cout << "Vector is empty";
-            }
+            double sum = 0;
             for(auto i : vec) {
                 sum += i.GetArea();
             }
