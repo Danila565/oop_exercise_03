@@ -171,18 +171,20 @@ int main() {
         }
         else if(s == "DEL") {
             if(vec.size() == 0) {
-                cout << "Vector is empty";
+                cout << "Vector is empty" << endl;
+                continue;
             }
             int idx;
             cin >> idx;
             vec.erase(vec.begin() + idx);
         }
         else if(s == "PRINT") {
+            if(vec.size() == 0) {
+                cout << "Vector is empty" << endl;
+                continue;
+            }
             int idx;
             cin >> idx;
-            if(vec.size() == 0) {
-                cout << "Vector is empty";
-            }
             if(idx >= vec.size()) {
                 cout << "Wrong index" << endl;
                 continue;
@@ -197,7 +199,7 @@ int main() {
             cout << "Common Area = " << sum << endl;
         }
         else {
-            cout << "Wrong command";
+            cout << "Wrong command" << endl;
         }
     }
     return 0;
